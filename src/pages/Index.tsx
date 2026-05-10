@@ -5,6 +5,7 @@ import { ChevronRight, Snowflake, Leaf, Gauge, ShieldCheck } from "lucide-react"
 import { AnimatedGrid } from "@/components/AnimatedGrid";
 import { ProcessSteps } from "@/components/ProcessSteps";
 import { Testimonials } from "@/components/Testimonials";
+import { QuoteWidget } from "@/components/QuoteWidget";
 import marineImg from "@/assets/service-marine.jpg";
 import autoImg from "@/assets/service-auto.jpg";
 import coldImg from "@/assets/service-coldchain.jpg";
@@ -268,6 +269,49 @@ const Index = () => {
 
       <ProcessSteps />
       <Testimonials />
+
+      {/* QUOTE WIDGET — embedded inline */}
+      <section className="border-t border-border bg-background relative overflow-hidden">
+        <div className="absolute left-1/2 top-0 -translate-x-1/2 h-[300px] w-[600px] bg-brand-cyan/5 blur-[120px] pointer-events-none" />
+        <div className="mx-auto max-w-7xl px-6 lg:px-10 py-24 md:py-32 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            {/* Left — copy */}
+            <div>
+              <span className="eyebrow">/ Instant Estimate</span>
+              <h2 className="mt-6 font-display uppercase text-[2rem] sm:text-[2.4rem] md:text-[3rem] leading-[0.95] tracking-tight">
+                Get your AI-powered <br />
+                <span className="text-brand-cyan">DryJet quote.</span>
+              </h2>
+              <p className="mt-6 text-[hsl(216_11%_72%)] leading-relaxed font-light max-w-md">
+                Describe your asset and project scope. Our AI technician analyzes your requirements
+                and generates a personalized, professional estimate — instantly. Download your
+                official PDF quote in seconds.
+              </p>
+              <div className="mt-8 space-y-4">
+                {[
+                  { label: "Automotive", detail: "$1,500 – $4,000 per session" },
+                  { label: "Marine / Vessel", detail: "$70 – $100 per linear foot" },
+                  { label: "Industrial", detail: "$350 per hour" },
+                ].map(({ label, detail }) => (
+                  <div key={label} className="flex items-center justify-between border-b border-border pb-3">
+                    <span className="font-display text-[10px] uppercase tracking-[0.18em] text-muted-foreground">{label}</span>
+                    <span className="font-display text-[11px] text-brand-cyan">{detail}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* Right — widget */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <QuoteWidget />
+            </motion.div>
+          </div>
+        </div>
+      </section>
 
       {/* CTA */}
       <section className="border-t border-border bg-background">

@@ -190,5 +190,15 @@
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
-.ticker-track { animation: ticker 40s linear infinite; }
+  .ticker-track { animation: ticker 40s linear infinite; }
 .ticker-track:hover { animation-play-state: paused; }
+
+/* Quote widget input fields */
+.widget-input {
+  @apply w-full bg-transparent border-none outline-none text-foreground text-sm font-light;
+  @apply placeholder:text-muted-foreground/50;
+}
+.widget-input option {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}

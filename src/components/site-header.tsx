@@ -9,6 +9,7 @@ const links = [
   { to: "/insights", label: "Insights" },
   { to: "/faq", label: "FAQ" },
   { to: "/contact", label: "Contact" },
+  { to: "/quote", label: "Get Quote" },
 ] as const;
 
 export function SiteHeader() {
@@ -47,14 +48,14 @@ export function SiteHeader() {
 
           {/* CTA */}
           <Link
-            to="/contact"
-            className="hidden md:inline-flex group items-center gap-4 text-[10px] md:text-[11px] uppercase text-foreground tracking-[0.18em] font-display bg-card/90 border border-border px-5 py-3.5 hover-gold"
+            to="/quote"
+            className="hidden md:inline-flex group items-center gap-4 text-[10px] md:text-[11px] uppercase text-foreground tracking-[0.18em] font-display bg-gradient-to-r from-brand-cyan/10 to-blue-600/10 border border-brand-cyan/40 px-5 py-3.5 hover:border-brand-cyan hover:from-brand-cyan/20 hover:to-blue-600/20 transition-all"
           >
             <span className="inline-flex items-center gap-3">
-              <span className="dot w-1.5 h-1.5 bg-brand-cyan transition-colors duration-300" />
-              <span>Request Quote</span>
+              <span className="dot w-1.5 h-1.5 bg-brand-cyan" />
+              <span className="text-brand-cyan">Get a Quote</span>
             </span>
-            <ChevronRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+            <ChevronRight className="w-4 h-4 text-brand-cyan transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
 
           <button
@@ -81,11 +82,11 @@ export function SiteHeader() {
               </Link>
             ))}
             <Link
-              to="/contact"
+              to="/quote"
               onClick={() => setOpen(false)}
-              className="mt-2 inline-flex justify-center px-5 py-3 text-[11px] uppercase tracking-[0.18em] font-display text-foreground border border-border bg-card hover-gold"
+              className="mt-2 inline-flex justify-center px-5 py-3 text-[11px] uppercase tracking-[0.18em] font-display text-brand-cyan border border-brand-cyan/40 bg-brand-cyan/10 hover:bg-brand-cyan/20 transition-all"
             >
-              Request Quote
+              Get a Quote
             </Link>
           </div>
         </div>
